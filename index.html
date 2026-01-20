@@ -10,7 +10,7 @@
   <script type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
-  <script src="js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
   <header>
@@ -32,8 +32,8 @@
       shadow-intensity="1" 
       environment-image="hdr/derelict_airfield_02_4k.hdr"
       exposure="1" 
-      min-camera-orbit="auto 65deg auto" 
-      max-camera-orbit="auto 90deg auto" 
+      min-camera-orbit="-90deg 65deg auto" 
+      max-camera-orbit="90deg 90deg auto" 
       camera-orbit="752.5deg 76.13deg 26.84m" 
       field-of-view="28.75deg">
 
@@ -81,16 +81,22 @@
   </main>
 
   <script type="module">
-    const modelViewer = document.querySelector("#model-viewer");
-    const annotationClicked = (Hotspot) => {
-      let dataset = Hotspot.dataset;
+    $(document).ready(function(){
+      const modelViewer = $("#model-viewer")[0];
+      $('.HotspotAnnotation').hide();
+      $(document).on('click', 'button', function(e) {
+        e.stopPropagation();
+        let dataset = $(this).data();
         modelViewer.cameraTarget = dataset.target;
         modelViewer.cameraOrbit = dataset.orbit;
         modelViewer.fieldOfView = '45deg';
-    }
-
-    document.querySelectorAll('button').forEach((Hotspot) => {
-      Hotspot.addEventListener('click', () => annotationClicked(Hotspot));
+        $('.HotspotAnnotation').hide();
+        $(this).find('.HotspotAnnotation').show();
+      });
+      
+      $(document).on('click', function() {
+        $('.HotspotAnnotation').hide();
+      });
     });
   </script>
 </body>
