@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>qnips Internorga 2026</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="manifest" href="js/manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Model Viewer library for AR in browsers -->
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <header>
+    qnips Internorga 2026
+  </header>
+  <main>
+    <div class="instructions">
+      Tippe auf den AR-Button um dieses Modell in Augmented Reality anzuschauen.<br>
+      Funktioniert auf Android (Chrome) und iOS (Safari).
+    </div>
+      
+    <model-viewer id="model-viewer"
+      src="model/Messestand_Internorga_27.glb"
+      ios-src="model/Messestand_Internorga_working.usdz"
+      ar
+      ar-modes="webxr scene-viewer quick-look" 
+      camera-controls 
+      tone-mapping="neutral" 
+      shadow-intensity="1" 
+      environment-image="hdr/derelict_airfield_02_4k.hdr"
+      exposure="1" 
+      min-camera-orbit="auto 65deg auto" 
+      max-camera-orbit="auto 90deg auto" 
+      camera-orbit="752.5deg 76.13deg 26.84m" 
+      field-of-view="28.75deg">
+
+      <button class="Hotspot" slot="hotspot-1"
+        data-position="2.0981348521758605m 1.0945898250190504m 4.19966658949852m"
+        data-normal="0m 0m 1m" 
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 0.2m"
+        data-target="0m 1.5m 4m">
+        <div class="HotspotAnnotation">Hologramm</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-2"
+        data-position="1.9451412569457265m 0.8942928265103394m -4.423638343811035m"
+        data-normal="0m 0m 1m"
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 1m"
+        data-target="0m 1.5m 4m">
+        <div class="HotspotAnnotation">Backoffice</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-3"
+        data-position="-1.8709787288173345m 1.3462053877168136m -2.139587640762329m"
+        data-normal="0m 0m 1m"
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 1m"
+        data-target="0m 1.5m 4m">
+        <div class="HotspotAnnotation">Smart-Fridge</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-4"
+        data-position="-2.508741021156311m 0.8236803085532155m 3.215817394729677m"
+        data-normal="-1m 0m 0m"
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 1m"
+        data-target="0m 1.5m 4m">
+        <div class="HotspotAnnotation">Kiosk</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-5"
+        data-position="-3.0767858922481564m 0.9823292459715005m -0.2835912865572583m"
+        data-normal="-1m 0m 0m"
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 1m"
+        data-target="0m 1.5m 4m">
+        <div class="HotspotAnnotation">Visioncheckout</div>
+      </button>
+    </model-viewer>
+  </main>
+
+  <script type="module">
+    const modelViewer = document.querySelector("#model-viewer");
+    const annotationClicked = (Hotspot) => {
+      let dataset = Hotspot.dataset;
+        modelViewer.cameraTarget = dataset.target;
+        modelViewer.cameraOrbit = dataset.orbit;
+        modelViewer.fieldOfView = '45deg';
+    }
+
+    document.querySelectorAll('button').forEach((Hotspot) => {
+      Hotspot.addEventListener('click', () => annotationClicked(Hotspot));
+    });
+  </script>
+</body>
+</html>
