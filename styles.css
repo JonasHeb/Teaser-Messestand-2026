@@ -1,40 +1,166 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
+:root {
+    --off-white: rgb(232, 231, 235);
+    --text: rgb(79, 81, 83);
+    --qnips-green: #01ff98;
+    --qnips-accent: #6cd999;
+}
+
+html {
+    font-size: 100%;
+}
+
 body {
     background: #211832;
     font-family: IBM-Plex-Sans, sans-serif;
     margin: 0;
-    text-align: center;
 }
 
 header {
-    color: white;
-    padding: 2em;
-    font-size: 2.5em;
+    background: #211832;
+    padding: 2rem 2.5rem;
+    color: var(--off-white);
+}
+
+.header-title {
+    font-size: 2rem;
     font-weight: 700;
 }
 
+.header-title span:first-child {
+    color: var(--qnips-green);
+}
+
+.header-title span {
+    display: block;
+}
+
+.booth-location {
+    color: var(--qnips-accent);
+    letter-spacing: .05em;
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-top: 1.5rem;
+}
+
+.booth-location span {
+    font-weight: 400;
+}
+
+.booth-location .pipe {
+    margin: 0 0.5rem;
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 2.5rem;
+        min-height: 140px;
+    }
+
+    .header-title {
+        font-size: 2.5rem;
+        line-height: 1;
+        text-align: center;
+    }
+
+    .header-title span {
+        display: inline;
+    }
+
+    .header-title br {
+        display: none;
+    }
+
+    .booth-location {
+        margin-top: 1.0rem;
+        font-size: 1.3rem;
+        white-space: nowrap;
+        text-align: center;
+    }
+}
+
 main {
-    margin: 2em auto;
-    max-width: 100%;
-    background: white;
-    padding: 2em;
-    border-radius: 1em;
-    box-shadow: 0 0.5em 2em #bbb2;
+    background: var(--off-white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.block {
+    padding: 2rem 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .block {
+    padding: 4rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.divider {
+    display: block;
+    margin: 1.5rem 0;
+    height: 1px;
+    background: #ccc;
+}
+
+.info-text {
+    line-height: 160%;
+    text-align: left;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+    animation-delay: calc(var(--index) * 0.2s);
+}
+
+@media (min-width: 1024px) {
+    .info-text {
+        font-size: 1.1rem;
+        line-height: 170%;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 model-viewer {
+    margin-top: 2rem;
     width: 100%;
-    height: 600px;
-    background: #eef;
-    border: 1px solid #ccc;
-    border-radius: 1em;
+    height: 400px;
+    background: rgb(213, 215, 219);
+    border: 1px solid #c8c8dd;
+    border-radius: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+    model-viewer {
+        height: 600px;
+        margin-top: 3rem;
+        border-radius: 1rem;
+    }
 }
 
 .instructions {
     margin: 0 0 1.5em 0;
     color: #444;
-    font-size: 1.15em;
+    font-size: 1.15rem;
+    text-align: left;
 }
 
 .Hotspot {
@@ -70,7 +196,6 @@ model-viewer {
     color: white;
 }
 
-/* This keeps child nodes hidden while the element loads */
 :not(:defined) > * {
     display: none;
 }
