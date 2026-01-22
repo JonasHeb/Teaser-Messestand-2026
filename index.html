@@ -55,27 +55,35 @@
       </button>
       <button class="Hotspot" slot="hotspot-3"
         data-position="-3.5m 1.3m -2.139587640762329m"
-        data-normal="0m 0m 1m"
+        data-normal="-1m 0m 0m"
         data-visibility-attribute="visible"
         data-orbit="10deg 10deg 1m"
         data-target="0m 1.5m 4m">
         <div class="HotspotAnnotation">Vending</div>
       </button>
       <button class="Hotspot" slot="hotspot-4"
-        data-position="-2.508741021156311m 0.8236803085532155m 3.215817394729677m"
+        data-position="-2.5m 1.3m 3.215817394729677m"
         data-normal="-1m 0m 0m"
         data-visibility-attribute="visible"
         data-orbit="10deg 10deg 1m"
         data-target="0m 1.5m 4m">
-        <div class="HotspotAnnotation">Kiosk</div>
+        <div class="HotspotAnnotation">Bestellung</div>
       </button>
       <button class="Hotspot" slot="hotspot-5"
-        data-position="-3.0767858922481564m 0.9823292459715005m -0.2835912865572583m"
+        data-position="-2m 1.3m 0.6m"
         data-normal="-1m 0m 0m"
         data-visibility-attribute="visible"
         data-orbit="10deg 10deg 1m"
         data-target="0m 1.5m 4m">
-        <div class="HotspotAnnotation">Visioncheckout</div>
+        <div class="HotspotAnnotation">Checkout</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-6"
+        data-position="1.8m 1.3m -0.6m"
+        data-normal="1m 0m 0m"
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 1m"
+        data-target="0m 1.5m 4m">
+        <div class="HotspotAnnotation">Produktion</div>
       </button>
     </model-viewer>
   </main>
@@ -84,13 +92,15 @@
     $(document).ready(function(){
       const modelViewer = $("#model-viewer")[0];
       $('.HotspotAnnotation').hide();
-      $(document).on('click', 'button', function(e) {
+      $('.Hotspot').hover(function() {
+        $(this).find('.HotspotAnnotation').show();
+      });
+      $(document).on('click', '.Hotspot', function(e) {
         e.stopPropagation();
         let dataset = $(this).data();
         modelViewer.cameraTarget = dataset.target;
         modelViewer.cameraOrbit = dataset.orbit;
         modelViewer.fieldOfView = '45deg';
-        $('.HotspotAnnotation').hide();
         $(this).find('.HotspotAnnotation').show();
       });
       
