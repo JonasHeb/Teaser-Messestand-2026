@@ -1,398 +1,103 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
   <meta charset="UTF-8">
   <title>qnips Internorga 2026</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="manifest" href="js/manifest.json">
   <link rel="stylesheet" href="styles.css">
-
   <!-- Model Viewer library for AR in browsers -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-
 <body>
   <header>
-    <div class="header-inner">
-      <div class="header-grid">
-        <div>
-          <div class="header-title">
-            <span>qnips</span>
-            Internorga<br>
-            2026
-          </div>
-
-          <div class="booth-and-lang">
-            <h1 class="booth-location">
-              Halle <span>A2</span>
-              <span class="pipe">|</span>
-              Stand <span>306</span>
-            </h1>
-
-            <div class="lang-switch">
-              <button class="lang-btn">DE</button>
-              <button class="lang-btn">EN</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    qnips Internorga 2026
   </header>
-
   <main>
-    <div class="container">
-      <div class="block">
-        <div class="content-grid">
-
-          <!-- LEFT TEXT (kept on desktop) -->
-          <div class="text-column">
-            <h1 class="info-text-header" style="--index: 0;">
-              Wie fühlt sich Betriebsgastronomie an,
-              wenn Technologie, Daten, smarte Prozesse
-              und Konzeptdesign wirklich zusammenspielen?
-            </h1>
-
-
-            <div class="info-text" style="--index: 1;">
-              Wir laden Sie ein, genau das in unserer Future Canteen
-              in Halle A2.306 zu erleben. Es erwartet Sie kein klassischer
-              Messestand mit den üblichen Gesprächen, sondern echtes
-              Betriebsrestaurant-Feeling. Betreten Sie unsere moderne,
-              zukunftsfähige Betriebskantine und erleben Sie alles von der
-              Ausgabe und dem POS über die Produktion bis hin zu administrativen Prozessen.
-              Ein digitales System, das Ordnung schafft, Abläufe vereinfacht und den Betrieb
-              spürbar entlastet – transparent, nachvollziehbar und skalierbar.
-            </div>
-
-            <span class="divider"></span>
-
-            <div class="info-text" style="--index: 2;">
-              Mit diesem interaktiven 3D-Modell können Sie den Stand vorab virtuell erleben, durch die einzelnen
-              Bereiche gehen und erste Hinweise auf unsere Messeneuheiten erhaschen. Einfach einen Bereich anklicken und
-              los geht's!
-            </div>
-
-            <div class="instructions" id="ar-instructions" style="display:none;">
-              Tippe auf den AR-Button um dieses Modell in Augmented Reality anzuschauen.<br>
-              Funktioniert auf Android (Chrome) und iOS (Safari).
-            </div>
-          </div>
-
-          <div class="cta-column" id="ctaColumn">
-            <div class="cta-header">
-              <h1>TOUR<br> STARTEN</h1>
-            </div>
-          </div>
-        </div>
-
-        <span class="divider mv-divider"></span>
-
-        <!-- MODEL VIEWER -->
-        <model-viewer id="model-viewer" src="model/Messestand_Internorga_27.glb"
-          ios-src="model/Messestand_Internorga_working.usdz" camera-controls touch-action="pan-y" tone-mapping="neutral"
-          shadow-intensity="1" environment-image="hdr/derelict_airfield_02_4k.hdr" exposure="1"
-          min-camera-orbit="-90deg 65deg auto" max-camera-orbit="90deg 90deg auto"
-          camera-orbit="752.5deg 76.13deg 26.84m" field-of-view="28.75deg">
-
-          <button class="Hotspot" slot="hotspot-1"
-            data-position="2.0981348521758605m 1.0945898250190504m 4.19966658949852m" data-normal="0m 0m 1m"
-            data-visibility-attribute="visible" data-orbit="-48.1deg 84.3deg 14.66m" data-target="2.13m 0.86m 4.20m"
-            data-fov="12.3deg" data-title="Holo"
-            data-text="Wie informiere ich Gäste zeitgemäß, flexibel und aufmerksamkeitsstark über mein Angebot?">
-            <div class="HotspotAnnotation">
-              <div class="annotation-title">Holo</div>
-              <div class="annotation-text">
-                Wie informiere ich Gäste zeitgemäß, flexibel und aufmerksamkeitsstark über mein Angebot?
-              </div>
-            </div>
-          </button>
-
-          <button class="Hotspot" slot="hotspot-2" data-position="2.5m 1.3m -3.5m" data-normal="0m 0m 1m"
-            data-visibility-attribute="visible" data-orbit="30.19deg 84.27deg 19.56m" data-target="1.94m 1.34m -4.42m"
-            data-fov="16.53deg" data-title="Backoffice"
-            data-text="Wie organisiere ich Waren, Personal und Lager, ohne ständig zwischen Systemen zu wechseln?">
-            <div class="HotspotAnnotation">
-              <div class="annotation-title">Backoffice</div>
-              <div class="annotation-text">
-                Wie organisiere ich Waren, Personal und Lager, ohne ständig zwischen Systemen zu wechseln?
-              </div>
-            </div>
-          </button>
-
-          <button class="Hotspot" slot="hotspot-3" data-position="-3.5m 1.3m -2.139587640762329m"
-            data-normal="-1m 0m 0m" data-visibility-attribute="visible" data-orbit="-55.86deg 82.31deg 19.75m"
-            data-target="-1.77m 1.74m -2.14m" data-fov="19.25deg" data-title="Vending"
-            data-text="Wie biete ich rund um die Uhr Versorgung, ohne zusätzliches Personal einzuplanen?">
-            <div class="HotspotAnnotation">
-              <div class="annotation-title">Vending</div>
-              <div class="annotation-text">
-                Wie biete ich rund um die Uhr Versorgung, ohne zusätzliches Personal einzuplanen?
-              </div>
-            </div>
-          </button>
-
-          <button class="Hotspot" slot="hotspot-4" data-position="-2.5m 1.3m 3.215817394729677m" data-normal="-1m 0m 0m"
-            data-visibility-attribute="visible" data-orbit="-70.82deg 75.81deg 18.92m" data-target="1.60m -0.05m 2.63m"
-            data-fov="14.78deg" data-title="Bestellung"
-            data-text="Wie stelle ich sicher, dass Gäste überall bestellen können – ohne Mehraufwand für mein Team?">
-            <div class="HotspotAnnotation">
-              <div class="annotation-title">Bestellung</div>
-              <div class="annotation-text">
-                Wie stelle ich sicher, dass Gäste überall bestellen können – ohne Mehraufwand für mein Team?
-              </div>
-            </div>
-          </button>
-
-          <button class="Hotspot" slot="hotspot-5" data-position="-2m 1.3m 0.6m" data-normal="-1m 0m 0m"
-            data-visibility-attribute="visible" data-orbit="-61.76deg 80.30deg 18.78m" data-target="-0.99m 0.83m 0.26m"
-            data-fov="16.91deg" data-title="Checkout"
-            data-text="Wie kann ich den Bezahlprozess vereinfachen, ohne neue Komplexität in den Betrieb zu bringen?">
-            <div class="HotspotAnnotation">
-              <div class="annotation-title">Checkout</div>
-              <div class="annotation-text">
-                Wie kann ich den Bezahlprozess vereinfachen, ohne neue Komplexität in den Betrieb zu bringen?
-              </div>
-            </div>
-          </button>
-
-          <button class="Hotspot" slot="hotspot-6" data-position="1.8m 1.3m -0.6m" data-normal="1m 0m 0m"
-            data-visibility-attribute="visible" data-orbit="65.82deg 90deg 14.96m" data-target="1.33m 1.22m -1.31m"
-            data-fov="15.90deg" data-title="Produktion"
-            data-text="Wie behalte ich jederzeit den Überblick über Planung, Abläufe und Leistung in der Küche?">
-            <div class="HotspotAnnotation">
-              <div class="annotation-title">Produktion</div>
-              <div class="annotation-text">
-                Wie behalte ich jederzeit den Überblick über Planung, Abläufe und Leistung in der Küche?
-              </div>
-            </div>
-          </button>
-
-          <button class="Hotspot" slot="hotspot-7" data-position="1.5m 6m 4.5m" data-normal="0m 0m 0m"
-            data-visibility-attribute="visible" data-orbit="43.17deg 84.88deg 27.86m" data-target="-1.40m 3.59m -2.14m"
-            data-fov="41.97deg" data-title="Future Canteen"
-            data-text="Wie wird aus vielen digitalen Einzeltools ein funktionierendes Gesamtsystem für meine Kantine?">
-            <div class="HotspotAnnotation">
-              <div class="annotation-title">Future Canteen</div>
-              <div class="annotation-text">
-                Wie wird aus vielen digitalen Einzeltools ein funktionierendes Gesamtsystem für meine Kantine?
-              </div>
-            </div>
-          </button>
-
-        </model-viewer>
-
-        <div class="logo-wrap">
-          <div class="logo-track">
-
-            <div class="logo-row">
-              <div class="logo-container">
-                <img src="assets/Dishtracker.svg" alt="Dishtracker">
-              </div>
-              <div class="logo-container">
-                <img src="assets/Zuply.svg" alt="Zuply">
-              </div>
-              <div class="logo-container">
-                <img src="assets/mollie.svg" alt="Mollie">
-              </div>
-              <div class="logo-container">
-                <img src="assets/FurtureCanteen.svg" alt="Future Canteen">
-              </div>
-              <div class="logo-container">
-                <img src="assets/logo 1.svg" alt="Logo 1">
-              </div>
-              <div class="logo-container">
-                <img src="assets/qiox_logo2019 1.svg" alt="Qiox Logo">
-              </div>
-              <div class="logo-container">
-                <img src="assets/logo-k&p.svg" alt="Logo K&P">
-              </div>
-              <div class="logo-container">
-                <img src="assets/qnips.svg" alt="Qnips">
-              </div>
-              <div class="logo-container">
-                <img src="assets/Matilda.svg" alt="Matilda">
-              </div>
-            </div>
-
-            <div class="logo-row">
-              <div class="logo-container">
-                <img src="assets/Dishtracker.svg" alt="Dishtracker">
-              </div>
-              <div class="logo-container">
-                <img src="assets/Zuply.svg" alt="Zuply">
-              </div>
-              <div class="logo-container">
-                <img src="assets/mollie.svg" alt="Mollie">
-              </div>
-              <div class="logo-container">
-                <img src="assets/FurtureCanteen.svg" alt="Future Canteen">
-              </div>
-              <div class="logo-container">
-                <img src="assets/logo 1.svg" alt="Logo 1">
-              </div>
-              <div class="logo-container">
-                <img src="assets/qiox_logo2019 1.svg" alt="Qiox Logo">
-              </div>
-              <div class="logo-container">
-                <img src="assets/logo-k&p.svg" alt="Logo K&P">
-              </div>
-              <div class="logo-container">
-                <img src="assets/qnips.svg" alt="Qnips">
-              </div>
-              <div class="logo-container">
-                <img src="assets/Matilda.svg" alt="Matilda">
-              </div>
-            </div>
-          </div>
-        </div>
-        <span class="divider final"></span>
-      </div>
+    <div class="instructions">
+      Tippe auf den AR-Button um dieses Modell in Augmented Reality anzuschauen.<br>
+      Funktioniert auf Android (Chrome) und iOS (Safari).
     </div>
-    </div>
+      
+    <model-viewer id="model-viewer"
+      src="model/Messestand_Internorga_27.glb"
+      ios-src="model/Messestand_Internorga_working.usdz"
+      ar
+      ar-modes="webxr scene-viewer quick-look" 
+      camera-controls 
+      tone-mapping="neutral" 
+      shadow-intensity="0.5" 
+      environment-image="hdr/derelict_airfield_02_4k.hdr"
+      exposure="1" 
+      min-camera-orbit="-90deg 65deg auto" 
+      max-camera-orbit="90deg 90deg auto" 
+      camera-orbit="22.5deg 76.13deg 26.84m" 
+      field-of-view="28.75deg">
+
+      <button class="Hotspot" slot="hotspot-1"
+        data-position="2.0m 1.0m 4.0m"
+        data-normal="0m 0m 1m" 
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 0.2m"
+        data-target="1m 1.5m 4m">
+        <div class="HotspotAnnotation">Holo</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-2"
+        data-position="2.5m 1.3m -3.5m"
+        data-normal="0m 0m 1m"
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 1m"
+        data-target="0m 1.5m 4m">
+        <div class="HotspotAnnotation">Backoffice</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-3"
+        data-position="-3.5m 1.3m -2.139587640762329m"
+        data-normal="0m 0m 1m"
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 1m"
+        data-target="0m 1.5m 4m">
+        <div class="HotspotAnnotation">Vending</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-4"
+        data-position="-2.508741021156311m 0.8236803085532155m 3.215817394729677m"
+        data-normal="-1m 0m 0m"
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 1m"
+        data-target="0m 1.5m 4m">
+        <div class="HotspotAnnotation">Kiosk</div>
+      </button>
+      <button class="Hotspot" slot="hotspot-5"
+        data-position="-3.0767858922481564m 0.9823292459715005m -0.2835912865572583m"
+        data-normal="-1m 0m 0m"
+        data-visibility-attribute="visible"
+        data-orbit="10deg 10deg 1m"
+        data-target="0m 1.5m 4m">
+        <div class="HotspotAnnotation">Visioncheckout</div>
+      </button>
+    </model-viewer>
   </main>
 
-  <footer>
-    <div class="container footer-container">
-      <div class="footer-grid">
-        <div class="footer-links">
-          <a href="https://www.internorga.com/ausstellen-besuchen/gelaendeplan-hallenplaene" target="_blank"><span
-              class="link-text">Geländeplan</span></a>
-          <a href="https://qnips.io/about-us/" target="_blank"><span class="link-text">Über uns</span></a>
-          <a href="https://blog.qnips.io/" target="_blank"><span class="link-text">Blog</span></a>
-        </div>
-
-        <div class="footer-links">
-          <a href="https://qnips.io/de/partners-and-interfaces/" target="_blank"><span
-              class="link-text">Partner</span></a>
-          <a href="https://qnips.io/jobs/" target="_blank"><span class="link-text">Jobs</span></a>
-        </div>
-
-        <div class="footer-filler">
-          <div class="social-icons">
-            <a href="https://www.instagram.com/qnips.gmbh/?hl=de" target="_blank" aria-label="Instagram">
-              <img src="assets/instagram.svg" alt="Instagram">
-            </a>
-            <a href="https://www.facebook.com/qnips/" target="_blank" aria-label="Facebook">
-              <img src="assets/facebook.svg" alt="Facebook">
-            </a>
-            <a href="https://www.linkedin.com/company/qnips-gmbh/?originalSubdomain=de" target="_blank"
-              aria-label="LinkedIn">
-              <img src="assets/linkedin.svg" alt="LinkedIn">
-            </a>
-            <a href="https://www.xing.com/companies/qnipsgmbh" target="_blank" aria-label="Xing">
-              <img src="assets/xing.svg" alt="Xing">
-            </a>
-          </div>
-
-          <p class="copyright">© qnips GmbH. All rights reserved.</p>
-        </div>
-
-        <div class="footer-single-cell">
-          <h2>qnips GmbH<br>
-            Alexanderstraße 3<br>
-            30159 Hanover<br>
-            Germany</h2>
-          <p class="contact-info">+49 511 ‒ 165899-0<br>
-            <a class="mailto" href="mailto:info@qnips.io">info@qnips.io</a>
-          </p>
-        </div>
-      </div>
-      <div class="footer-divider"></div>
-    </div>
-  </footer>
-
-  <!-- SCRIPTS -->
-
   <script type="module">
-    $(document).ready(function () {
+    $(document).ready(function(){
       const modelViewer = $("#model-viewer")[0];
       $('.HotspotAnnotation').hide();
-
-      let promptDisabled = false;
-
-      function disablePrompt() {
-        if (promptDisabled) return;
-        modelViewer.interactionPrompt = 'none';
-        promptDisabled = true;
-      }
-
-      modelViewer.addEventListener('pointerdown', disablePrompt);
-      modelViewer.addEventListener('touchstart', disablePrompt);
-      modelViewer.addEventListener('mousedown', disablePrompt);
-      modelViewer.addEventListener('click', disablePrompt);
-
-      $(document).on('click', '.Hotspot', function (e) {
+      $(document).on('click', 'button', function(e) {
         e.stopPropagation();
-
-        const $this = $(this);
-        const dataset = $this.data();
-
+        let dataset = $(this).data();
         modelViewer.cameraTarget = dataset.target;
         modelViewer.cameraOrbit = dataset.orbit;
-        modelViewer.fieldOfView = dataset.fov || '45deg';
-
+        modelViewer.fieldOfView = '45deg';
         $('.HotspotAnnotation').hide();
-        $this.find('.HotspotAnnotation').show();
-
-        $('.Hotspot').removeClass('active');
-        $this.addClass('active');
+        $(this).find('.HotspotAnnotation').show();
       });
-
-      $(document).on('click', function () {
+      
+      $(document).on('click', function() {
         $('.HotspotAnnotation').hide();
-        $('.Hotspot').removeClass('active');
       });
     });
   </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const langButtons = document.querySelectorAll(".lang-btn");
-
-      const path = window.location.pathname;
-      const isEnglish = path.includes("index_en.html");
-
-      langButtons.forEach(btn => {
-        btn.classList.remove("active");
-      });
-
-      if (isEnglish) {
-        document.querySelector(".lang-btn:nth-child(2)").classList.add("active");
-      } else {
-        document.querySelector(".lang-btn:nth-child(1)").classList.add("active");
-      }
-
-      document.querySelector(".lang-btn:nth-child(1)").addEventListener("click", () => {
-        if (!isEnglish) return;
-        window.location.href = "index.html";
-      });
-
-      document.querySelector(".lang-btn:nth-child(2)").addEventListener("click", () => {
-        if (isEnglish) return;
-        window.location.href = "index_en.html";
-      });
-    });
-  </script>
-
-  <script>
-    const cta = document.getElementById('ctaColumn');
-    const model = document.getElementById('model-viewer');
-
-    cta.addEventListener('click', () => {
-      const padding = 4.5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-      const topPosition = model.getBoundingClientRect().top + window.pageYOffset - padding;
-
-      window.scrollTo({
-        top: topPosition,
-        behavior: 'smooth'
-      });
-    });
-  </script>
-
 </body>
-
 </html>
