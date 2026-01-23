@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <title>qnips Internorga 2026</title>
@@ -8,8 +9,7 @@
   <link rel="stylesheet" href="styles.css">
 
   <!-- Model Viewer library for AR in browsers -->
-  <script type="module"
-    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -17,133 +17,208 @@
 
 <body>
   <header>
-    <div class="header-title">
-      <span>qnips</span>
-      Internorga<br>
-      2026
-    </div>
+    <div class="header-inner">
+      <div class="header-grid">
+        <div>
+          <div class="header-title">
+            <span>qnips</span>
+            Internorga<br>
+            2026
+          </div>
 
-    <h1 class="booth-location">
-      Halle <span>A2</span>
-      <span class="pipe">|</span>
-      Stand <span>306</span>
-    </h1>
+          <div class="booth-and-lang">
+            <h1 class="booth-location">
+              Halle <span>A2</span>
+              <span class="pipe">|</span>
+              Stand <span>306</span>
+            </h1>
+
+            <div class="lang-switch">
+              <button class="lang-btn">DE</button>
+              <button class="lang-btn">EN</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main>
     <div class="container">
       <div class="block">
-        <div class="info-text" style="--index: 0;">
-          Wie fühlt sich Betriebsgastronomie an, 
-          wenn Technologie, Daten, smarte Prozesse 
-          und Konzeptdesign wirklich zusammenspielen?
+        <div class="content-grid">
+
+          <!-- LEFT TEXT (kept on desktop) -->
+          <div class="text-column">
+            <div class="info-text" style="--index: 0;">
+              Wie fühlt sich Betriebsgastronomie an,
+              wenn Technologie, Daten, smarte Prozesse
+              und Konzeptdesign wirklich zusammenspielen?
+            </div>
+
+            <span class="divider"></span>
+
+            <div class="info-text" style="--index: 1;">
+              Wir laden Sie ein, genau das in unserer Future Canteen
+              in Halle A2.306 zu erleben. Es erwartet Sie kein klassischer
+              Messestand mit den üblichen Gesprächen, sondern echtes
+              Betriebsrestaurant-Feeling. Betreten Sie unsere moderne,
+              zukunftsfähige Betriebskantine und erleben Sie alles von der
+              Ausgabe und dem POS über die Produktion bis hin zu administrativen Prozessen.
+              Ein digitales System, das Ordnung schafft, Abläufe vereinfacht und den Betrieb
+              spürbar entlastet – transparent, nachvollziehbar und skalierbar.
+            </div>
+
+            <span class="divider"></span>
+
+            <div class="info-text" style="--index: 2;">
+              Mit diesem interaktiven 3D-Modell können Sie den Stand vorab virtuell erleben, durch die einzelnen
+              Bereiche gehen und erste Hinweise auf unsere Messeneuheiten erhaschen. Einfach einen Bereich anklicken und
+              los geht's!
+            </div>
+
+            <div class="instructions" id="ar-instructions" style="display:none;">
+              Tippe auf den AR-Button um dieses Modell in Augmented Reality anzuschauen.<br>
+              Funktioniert auf Android (Chrome) und iOS (Safari).
+            </div>
+          </div>
+
+          <div class="cta-column" id="ctaColumn">
+            <div class="cta-header">
+              <h1>TOUR STARTEN</h1>
+            </div>
+          </div>
         </div>
 
-        <span class="divider"></span>
+        <!-- MODEL VIEWER (keeps full width) -->
+        <model-viewer id="model-viewer" src="model/Messestand_Internorga_27.glb"
+          ios-src="model/Messestand_Internorga_working.usdz" camera-controls touch-action="pan-y" tone-mapping="neutral"
+          shadow-intensity="1" environment-image="hdr/derelict_airfield_02_4k.hdr" exposure="1"
+          min-camera-orbit="-90deg 65deg auto" max-camera-orbit="90deg 90deg auto"
+          camera-orbit="752.5deg 76.13deg 26.84m" field-of-view="28.75deg">
 
-        <div class="info-text" style="--index: 1;">
-          Wir laden Sie ein, genau das in unserer Future Canteen 
-          in Halle A2.306 zu erleben. Es erwartet Sie kein klassischer 
-          Messestand mit den üblichen Gesprächen, sondern echtes 
-          Betriebsrestaurant-Feeling. Betreten Sie unsere moderne, 
-          zukunftsfähige Betriebskantine und erleben Sie alles von der 
-          Ausgabe und dem POS über die Produktion bis hin zu administrativen Prozessen. 
-          Ein digitales System, das Ordnung schafft, Abläufe vereinfacht und den Betrieb 
-          spürbar entlastet – transparent, nachvollziehbar und skalierbar.
-        </div>
-
-        <span class="divider"></span>
-
-        <div class="info-text" style="--index: 2;">
-          Mit diesem interaktiven 3D-Modell können Sie den Stand vorab virtuell erleben, durch die einzelnen Bereiche gehen und erste Hinweise auf unsere Messeneuheiten erhaschen. Einfach einen Bereich anklicken und los geht's!
-        </div>
-
-        <div class="instructions" id="ar-instructions" style="display:none;">
-          Tippe auf den AR-Button um dieses Modell in Augmented Reality anzuschauen.<br>
-          Funktioniert auf Android (Chrome) und iOS (Safari).
-        </div>
-      
-        <model-viewer id="model-viewer"
-          src="model/Messestand_Internorga_27.glb"
-          ios-src="model/Messestand_Internorga_working.usdz"
-          camera-controls
-          tone-mapping="neutral"
-          shadow-intensity="1"
-          environment-image="hdr/derelict_airfield_02_4k.hdr"
-          exposure="1"
-          min-camera-orbit="-90deg 65deg auto"
-          max-camera-orbit="90deg 90deg auto"
-          camera-orbit="752.5deg 76.13deg 26.84m"
-          field-of-view="28.75deg">
-
+          <!-- HOTSPOTS -->
           <button class="Hotspot" slot="hotspot-1"
-            data-position="2.0981348521758605m 1.0945898250190504m 4.19966658949852m"
-            data-normal="0m 0m 1m"
-            data-visibility-attribute="visible"
-            data-orbit="10deg 10deg 0.2m"
-            data-target="0m 1.5m 4m">
-            <div class="HotspotAnnotation">Hologramm</div>
+            data-position="2.0981348521758605m 1.0945898250190504m 4.19966658949852m" data-normal="0m 0m 1m"
+            data-visibility-attribute="visible" data-orbit="-48.1deg 84.3deg 14.66m" data-target="2.13m 0.86m 4.20m"
+            data-fov="12.3deg" data-title="Holo"
+            data-text="Wie informiere ich Gäste zeitgemäß, flexibel und aufmerksamkeitsstark über mein Angebot?">
+            <div class="HotspotAnnotation">
+              <div class="annotation-title">Holo</div>
+              <div class="annotation-text">
+                Wie informiere ich Gäste zeitgemäß, flexibel und aufmerksamkeitsstark über mein Angebot?
+              </div>
+            </div>
           </button>
 
-          <button class="Hotspot" slot="hotspot-2"
-            data-position="1.9451412569457265m 0.8942928265103394m -4.423638343811035m"
-            data-normal="0m 0m 1m"
-            data-visibility-attribute="visible"
-            data-orbit="10deg 10deg 1m"
-            data-target="0m 1.5m 4m">
-            <div class="HotspotAnnotation">Backoffice</div>
-          </button>
-
-          <button class="Hotspot" slot="hotspot-3"
-            data-position="-1.8709787288173345m 1.3462053877168136m -2.139587640762329m"
-            data-normal="0m 0m 1m"
-            data-visibility-attribute="visible"
-            data-orbit="10deg 10deg 1m"
-            data-target="0m 1.5m 4m">
-            <div class="HotspotAnnotation">Smart-Fridge</div>
-          </button>
-
-          <button class="Hotspot" slot="hotspot-4"
-            data-position="-2.508741021156311m 0.8236803085532155m 3.215817394729677m"
-            data-normal="-1m 0m 0m"
-            data-visibility-attribute="visible"
-            data-orbit="10deg 10deg 1m"
-            data-target="0m 1.5m 4m">
-            <div class="HotspotAnnotation">Kiosk</div>
-          </button>
-
-          <button class="Hotspot" slot="hotspot-5"
-            data-position="-3.0767858922481564m 0.9823292459715005m -0.2835912865572583m"
-            data-normal="-1m 0m 0m"
-            data-visibility-attribute="visible"
-            data-orbit="10deg 10deg 1m"
-            data-target="0m 1.5m 4m">
-            <div class="HotspotAnnotation">Visioncheckout</div>
-          </button>
+          <!-- remaining hotspots... -->
         </model-viewer>
+
+        <div class="logo-wrap">
+          <div class="logo-track">
+
+            <div class="logo-container">
+              <img src="https://baconmockup.com/200/84" alt="Sponsor 1">
+              <img src="https://baconmockup.com/200/80" alt="Sponsor 2">
+              <img src="https://baconmockup.com/200/80" alt="Sponsor 3">
+              <img src="https://baconmockup.com/200/80" alt="Sponsor 4">
+              <img src="https://baconmockup.com/200/80" alt="Sponsor 5">
+            </div>
+
+            <div class="logo-container">
+              <img src="https://baconmockup.com/200/84" alt="Sponsor 1">
+              <img src="https://baconmockup.com/200/80" alt="Sponsor 2">
+              <img src="https://baconmockup.com/200/80" alt="Sponsor 3">
+              <img src="https://baconmockup.com/200/80" alt="Sponsor 4">
+              <img src="https://baconmockup.com/200/80" alt="Sponsor 5">
+            </div>
+          </div>
+        </div>
+
       </div>
+    </div>
     </div>
   </main>
 
+  <footer>
+    <div class="container footer-container">
+      <grid class="footer-grid">
+        <a href="https://www.internorga.com/ausstellen-besuchen/gelaendeplan-hallenplaene" target="_blank"><span
+            class="link-text">Geländeplan</span></a>
+        <a href="https://www.qnips.io/" target="_blank"><span class="link-text">Über uns</span></a>
+        <a href="https://www.internorga.com/ausstellen-besuchen/gelaendeplan-hallenplaene" target="_blank"><span
+            class="link-text">Impressum</span></a>
+      </grid>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+  <!-- SCRIPTS -->
+
   <script type="module">
-    $(document).ready(function(){
+    $(document).ready(function () {
       const modelViewer = $("#model-viewer")[0];
       $('.HotspotAnnotation').hide();
 
-      $(document).on('click', 'button', function(e) {
+      let promptDisabled = false;
+
+      function disablePrompt() {
+        if (promptDisabled) return;
+        modelViewer.interactionPrompt = 'none';
+        promptDisabled = true;
+      }
+
+      modelViewer.addEventListener('pointerdown', disablePrompt);
+      modelViewer.addEventListener('touchstart', disablePrompt);
+      modelViewer.addEventListener('mousedown', disablePrompt);
+      modelViewer.addEventListener('click', disablePrompt);
+
+      $(document).on('click', '.Hotspot', function (e) {
         e.stopPropagation();
-        let dataset = $(this).data();
+
+        const $this = $(this);
+        const dataset = $this.data();
+
         modelViewer.cameraTarget = dataset.target;
         modelViewer.cameraOrbit = dataset.orbit;
-        modelViewer.fieldOfView = '45deg';
+        modelViewer.fieldOfView = dataset.fov || '45deg';
+
         $('.HotspotAnnotation').hide();
-        $(this).find('.HotspotAnnotation').show();
+        $this.find('.HotspotAnnotation').show();
+
+        $('.Hotspot').removeClass('active');
+        $this.addClass('active');
       });
-      
-      $(document).on('click', function() {
+
+      $(document).on('click', function () {
         $('.HotspotAnnotation').hide();
+        $('.Hotspot').removeClass('active');
       });
     });
   </script>
+
+  <script>
+    const cta = document.getElementById('ctaColumn');
+    const model = document.getElementById('model-viewer');
+
+    cta.addEventListener('click', () => {
+      const padding = 3 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const topPosition = model.getBoundingClientRect().top + window.pageYOffset - padding;
+
+      window.scrollTo({
+        top: topPosition,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+
 </body>
+
 </html>
