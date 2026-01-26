@@ -1,5 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
+/* ============================================
+   1. VARIABLES & RESET
+   ============================================ */
+:root {
+    /* Colors */
+    --off-white: #e8e7eb;
+    --text: rgb(79, 81, 83);
+    --qnips-green: #01ff98;
+    --qnips-accent: #6cd999;
+    --dark-blue: #211832;
+    --booth-blue: #84f0f7;
+    --qnips-transparent: rgba(108, 217, 153, 0.25);
+    --qnips-transparent2: rgba(108, 217, 153, 0.15);
+
+    --page-bg: var(--off-white);
+
+    /* Spacing */
+    --page-padding: 1.5rem;
+    --section-gap: 1rem;
+}
+
+html {
+    font-size: 100%;
+}
+
 body {
     background: radial-gradient(circle at bottom, #095079 0%,#00222E 100%);
     font-family: IBM-Plex-Sans, sans-serif;
@@ -21,10 +46,125 @@ main {
     border-radius: 1em;
 }
 
-model-viewer {
-    width: 100vw;
-    height: 700px;
-    background: transparent;
+.text-column {
+    order: 2;
+    padding: 0.5em;
+}
+
+.cta-column {
+    order: 1;
+}
+
+/* ============================================
+   5. CTA BUTTON
+   ============================================ */
+.cta-column {
+    background: linear-gradient(50deg, #39f2ff, var(--booth-blue));
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    /* KEY FIX: top-left layout everywhere */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    border-radius: 0.5rem;
+    transform: translateY(0);
+    transition: transform 400ms ease-in-out;
+    min-height: 50px;
+}
+
+/* Arrow */
+.cta-column::after {
+    content: "▼";
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.5em;
+    font-size: 2.5rem;
+    color: rgb(89, 230, 240);
+    pointer-events: none;
+    filter: blur(1px);
+    opacity: 0.8;
+    padding: 0.1em;
+    transition: transform 600ms ease-in-out;
+}
+
+.cta-column:hover {
+    cursor: pointer;
+    background: linear-gradient(150deg, #39f2ff, var(--booth-blue));
+    transform: translateY(3px);
+}
+
+.cta-column:active {
+    background: linear-gradient(150deg, #8cf3f9, #8cf3f9);
+}
+
+.cta-column:hover::after {
+    transform: translateY(-5px);
+}
+
+/* CTA text */
+.cta-column h1 {
+    margin: 0;
+    padding: 0.8em;
+    font-size: 1.75rem;
+    font-weight: 100;
+    line-height: 120%;
+    color: var(--dark-blue);
+    text-align: left;
+    transition: transform 900ms ease-in-out;
+}
+
+.cta-column:hover h1 {
+    color: #2b2070;
+    transform: translateY(3px);
+}
+
+/* ============================================
+   6. TEXT CONTENT (Mobile-First)
+   ============================================ */
+.divider {
+    display: block;
+    margin: 1rem 0;
+    height: 1px;
+    background: #ccc;
+}
+
+.divider.final {
+    padding: 0;
+    margin-top: 0.6em;
+    margin-bottom: 2.0em;
+}
+
+.info-text {
+    line-height: 160%;
+    text-align: left;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+    animation-delay: calc(var(--index) * 0.2s);
+}
+
+.info-text-header {
+    color: var(--dark-blue);
+    line-height: 150%;
+    font-weight: 800;
+    font-size: 1.3rem;
+    padding-top: 0.5em;
+    margin-top: 0;
+    padding-bottom: 0.5em;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 .instructions {

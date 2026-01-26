@@ -17,25 +17,58 @@
     qnips Internorga 2026
   </header>
   <main>
-    <div class="instructions">
-      Tippe auf den AR-Button um dieses Modell in Augmented Reality anzuschauen.<br>
-      Funktioniert auf Android (Chrome) und iOS (Safari).
-    </div>
-      
-    <model-viewer id="model-viewer"
-      src="model/Messestand_Internorga_27.glb"
-      ios-src="model/Messestand_Internorga_working.usdz"
-      ar
-      ar-modes="webxr scene-viewer quick-look" 
-      camera-controls 
-      tone-mapping="neutral" 
-      shadow-intensity="0.5" 
-      environment-image="hdr/derelict_airfield_02_4k.hdr"
-      exposure="1" 
-      min-camera-orbit="auto 65deg auto"
-      max-camera-orbit="auto 90deg auto" 
-      camera-orbit="22.5deg 76.13deg 26.84m" 
-      field-of-view="28.75deg">
+    <div class="container">
+      <div class="block">
+        <div class="content-grid">
+
+          <!-- LEFT TEXT (kept on desktop) -->
+          <div class="text-column">
+            <div class="info-text" style="--index: 1;">
+              Wir laden Sie ein, genau das in unserer Future Canteen
+              in Halle A2.306 zu erleben. Es erwartet Sie kein klassischer
+              Messestand mit den üblichen Gesprächen, sondern echtes
+              Betriebsrestaurant-Feeling. Betreten Sie unsere moderne,
+              zukunftsfähige Betriebskantine und erleben Sie alles von der
+              Ausgabe und dem POS über die Produktion bis hin zu administrativen Prozessen.
+              Ein digitales System, das Ordnung schafft, Abläufe vereinfacht und den Betrieb
+              spürbar entlastet – transparent, nachvollziehbar und skalierbar.
+            </div>
+
+            <span class="divider"></span>
+
+            <div class="info-text" style="--index: 2;">
+              Mit diesem interaktiven 3D-Modell können Sie den Stand vorab virtuell erleben, durch die einzelnen
+              Bereiche gehen und erste Hinweise auf unsere Messeneuheiten erhaschen. Einfach einen Bereich anklicken und
+              los geht's!
+            </div>
+
+            <div class="instructions" id="ar-instructions" style="display:none;">
+              Tippe auf den AR-Button um dieses Modell in Augmented Reality anzuschauen.<br>
+              Funktioniert auf Android (Chrome) und iOS (Safari).
+            </div>
+          </div>
+          <div class="column-right">
+            <h1 class="info-text-header" style="--index: 0;">
+                Wie fühlt sich Betriebsgastronomie an,
+                wenn Technologie, Daten, smarte Prozesse
+                und Konzeptdesign wirklich zusammenspielen?
+              </h1>
+            <div class="cta-column" id="ctaColumn">
+              <div class="cta-header">
+                <h1>TOUR<br> STARTEN</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span class="divider mv-divider"></span>
+
+        <!-- MODEL VIEWER -->
+        <model-viewer id="model-viewer" src="model/Messestand_Internorga_27.glb"
+          ios-src="model/Messestand_Internorga_working.usdz" camera-controls touch-action="pan-y" tone-mapping="neutral"
+          shadow-intensity="1" environment-image="hdr/derelict_airfield_02_4k.hdr" exposure="1"
+          min-camera-orbit="-90deg 65deg auto" max-camera-orbit="90deg 90deg auto"
+          camera-orbit="752.5deg 76.13deg 26.84m" field-of-view="28.75deg">
 
       <button class="Hotspot" slot="hotspot-1"
         data-position="2.0m 1.0m 4.0m"
