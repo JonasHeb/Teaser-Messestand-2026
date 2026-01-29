@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <title>qnips Internorga 2026</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="manifest" href="js/manifest.json">
   <link rel="stylesheet" href="styles.css">
 
   <!-- Model Viewer library for AR in browsers -->
@@ -50,13 +49,6 @@
 
           <!-- LEFT TEXT (kept on desktop) -->
           <div class="text-column">
-            <h1 class="info-text-header" style="--index: 0;">
-              Wie fühlt sich Betriebsgastronomie an,
-              wenn Technologie, Daten, smarte Prozesse
-              und Konzeptdesign wirklich zusammenspielen?
-            </h1>
-
-
             <div class="info-text" style="--index: 1;">
               Wir laden Sie ein, genau das in unserer Future Canteen
               in Halle A2.306 zu erleben. Es erwartet Sie kein klassischer
@@ -81,10 +73,16 @@
               Funktioniert auf Android (Chrome) und iOS (Safari).
             </div>
           </div>
-
-          <div class="cta-column" id="ctaColumn">
-            <div class="cta-header">
-              <h1>TOUR<br> STARTEN</h1>
+          <div class="left-column">
+            <h1 class="info-text-header" style="--index: 0;">
+              Wie fühlt sich Betriebsgastronomie an,
+              wenn Technologie, Daten, smarte Prozesse
+              und Konzeptdesign wirklich zusammenspielen?
+            </h1>
+            <div class="cta-column" id="ctaColumn">
+              <div class="cta-header">
+                <h1>TOUR<br> STARTEN</h1>
+              </div>
             </div>
           </div>
         </div>
@@ -307,7 +305,10 @@
 
   <!-- SCRIPTS -->
 
-  <script type="module">
+  
+
+</body>
+<script type="module">
     $(document).ready(function () {
       const modelViewer = $("#model-viewer")[0];
       $('.HotspotAnnotation').hide();
@@ -392,7 +393,4 @@
       });
     });
   </script>
-
-</body>
-
 </html>

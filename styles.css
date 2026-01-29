@@ -1,20 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* ============================================
    1. VARIABLES & RESET
    ============================================ */
 :root {
     /* Colors */
-    --off-white: #e8e7eb;
-    --text: rgb(79, 81, 83);
+    --text: #fff;
     --qnips-green: #01ff98;
     --qnips-accent: #6cd999;
-    --dark-blue: #211832;
+    --dark-blue: #fff;
     --booth-blue: #84f0f7;
     --qnips-transparent: rgba(108, 217, 153, 0.25);
     --qnips-transparent2: rgba(108, 217, 153, 0.15);
 
-    --page-bg: var(--off-white);
+    --page-bg: linear-gradient(to bottom, #0C6267 0%, #23A3AD 100%);
 
     /* Spacing */
     --page-padding: 1.5rem;
@@ -27,7 +26,7 @@ html {
 
 body {
     background: var(--page-bg);
-    font-family: IBM-Plex-Sans, sans-serif;
+    font-family: Saira, sans-serif;
     margin: 0;
 }
 
@@ -35,7 +34,7 @@ body {
    2. HEADER (Mobile-First)
    ============================================ */
 header {
-    background: var(--dark-blue);
+    /*background: var(--dark-blue); */
     color: var(--off-white);
 }
 
