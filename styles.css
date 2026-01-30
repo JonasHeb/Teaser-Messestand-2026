@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css");
 /* ============================================
    1. VARIABLES & RESET
    ============================================ */
@@ -33,67 +33,25 @@ body {
 /* ============================================
    2. HEADER (Mobile-First)
    ============================================ */
-header {
-    /*background: var(--dark-blue); */
-    color: var(--off-white);
-}
 
-.header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1.5rem var(--page-padding);
-}
-
-.header-title {
-    font-size: 1.5em;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-}
-
-.header-title span:first-child {
-    color: var(--qnips-green);
-}
-
-.header-title span {
-    display: block;
-}
-
-.booth-and-lang {
-    width: 100%;
+.header {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.booth-location {
-    color: var(--qnips-accent);
-    letter-spacing: 0.05em;
-    font-size: 0.95rem;
-    font-weight: 300;
-    margin: 0;
-}
-
-.booth-location span {
-    font-weight: 400;
-}
-
-.booth-location .pipe {
-    margin: 0 0.35rem;
+    padding-top: var(--page-padding);
 }
 
 .lang-switch {
     display: flex;
-    gap: 0.5rem;
+    flex-direction: row;
+    gap: 1rem;
+    
 }
-
 .lang-btn {
     all: unset;
     background-color: #1c142d;
     border-right: 1px solid #6161a759;
-    color: var(--off-white);
+    color: var(--text);
     padding: 0.4rem 1.2rem;
     font-weight: 300;
     letter-spacing: 0.1em;
@@ -208,7 +166,7 @@ header {
     font-size: 1.75rem;
     font-weight: 100;
     line-height: 120%;
-    color: var(--dark-blue);
+    color: var(--text);
     text-align: left;
     transition: transform 900ms ease-in-out;
 }
@@ -247,7 +205,7 @@ header {
 }
 
 .info-text-header {
-    color: var(--dark-blue);
+    color: var(--text);
     line-height: 150%;
     font-weight: 800;
     font-size: 1.3rem;
@@ -391,7 +349,6 @@ model-viewer {
     object-fit: contain;
     max-height: 4.0em;
     max-width: 4.0em;
-    filter: brightness(0) saturate(100%) invert(9%) sepia(19%) saturate(3207%) hue-rotate(235deg) brightness(95%) contrast(92%);
 }
 
 .logo-row div {
@@ -412,7 +369,7 @@ model-viewer {
    10. FOOTER (Mobile-First - Single Column)
    ============================================ */
 footer {
-    background-color: var(--dark-blue);
+    background-color: var(--text);
     width: 100%;
     border-top: var(--qnips-transparent) 10px solid;
     padding: 5rem 0 0rem 0;
@@ -550,20 +507,20 @@ footer {
 }
 
 .footer-container .contact-info {
-    color: var(--off-white);
+    color: var(--text);
 }
 
 .contact-info {
     padding-top: 1em;
     font-weight: 100;
-    color: var(--off-white);
+    color: var(--text);
     font-size: 0.85rem;
     line-height: 150%;
 }
 
 .mailto {
     text-decoration: underline;
-    color: var(--off-white);
+    color: var(--text);
 }
 
 .footer-divider {
@@ -572,234 +529,4 @@ footer {
     border-bottom: #1d1032 1px solid;
 }
 
-/* ============================================
-   11. DESKTOP OVERRIDES (1024px+)
-   ============================================ */
-@media (min-width: 1024px) {
-    :root {
-        --page-padding: 4rem;
-    }
-
-    /* Header */
-    .header-inner,
-    .container {
-        max-width: 900px;
-    }
-
-    header {
-        padding-top: 1em;
-        padding-bottom: 1em;
-    }
-
-    .header-title {
-        font-size: 2rem;
-    }
-
-    .booth-and-lang {
-        align-items: flex-end;
-    }
-
-    .booth-location {
-        font-size: 1.1rem;
-    }
-
-    .booth-location .pipe {
-        margin: 0 0.5rem;
-    }
-
-    .lang-switch {
-        flex-direction: row;
-        gap: 0.75rem;
-    }
-
-    .lang-btn {
-        padding: 0.4rem 1.5rem;
-        font-size: small;
-    }
-
-    /* Layout */
-    .block {
-        padding: 7rem 0;
-    }
-
-    .block:last-of-type {
-        padding-bottom: 2em;
-    }
-
-    /* Content Grid */
-    .content-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: start;
-        padding-bottom: 3em;
-    }
-
-    .text-column {
-        order: 1;
-
-    }
-
-    .cta-column {
-        order: 0;
-        height: 100%;
-        min-height: auto;
-        margin-bottom: 0;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-
-    .cta-column::after {
-        top: auto;
-        bottom: 1rem;
-        transform: none;
-        font-size: 4rem;
-        right: 8%;
-    }
-
-    .cta-column:hover {
-        transform: translateY(5px);
-    }
-
-    .cta-column:hover::after {
-        transform: translateY(-25px);
-    }
-
-    .cta-column h1 {
-        font-size: 3.5rem;
-        text-align: left;
-    }
-
-    .cta-column:hover h1 {
-        transform: translateY(5px);
-    }
-
-    .divider.final {
-        margin-bottom: 7.0em;
-    }
-
-    /* Text */
-    .info-text {
-        font-size: 1.1rem;
-        line-height: 170%;
-    }
-
-    .info-text-header {
-        line-height: 130%;
-        font-size: 2rem;
-        padding: 0;
-        margin: 0;
-        padding-bottom: 1.0em;
-    }
-
-    .instructions {
-        font-size: 1.15rem;
-    }
-
-    /* Model Viewer */
-    model-viewer {
-        margin-top: 4.0em;
-        height: 600px;
-        border-radius: 0.5rem;
-        margin-bottom: 1.0em;
-    }
-
-    /* Hotspots */
-    .HotspotAnnotation {
-        max-width: 12rem;
-        width: 10rem;
-        font-size: 0.85rem;
-        padding: 15px;
-        gap: 10px;
-        line-height: 1.5;
-    }
-
-    .annotation-title {
-        font-size: 0.9rem;
-    }
-
-    /* Logos */
-    .logo-wrap {
-        padding: 0;
-    }
-
-    .logo-container {
-        height: 84px;
-        padding: 0 25px;
-    }
-
-    .logo-container img {
-        max-height: 15em;
-        max-width: 15em;
-    }
-
-    /* Footer - Desktop Grid */
-    footer {
-        min-height: 33em;
-        padding: 0;
-    }
-
-    .footer-container {
-        max-width: 900px;
-        padding: 0;
-    }
-
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 1.5rem;
-        align-items: stretch;
-        width: 100%;
-        padding-top: 8em;
-    }
-
-    .footer-links:nth-child(1) {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    .footer-links:nth-child(2) {
-        grid-column: 2;
-        grid-row: 1;
-    }
-
-    .footer-links {
-        gap: 5px;
-    }
-
-    .footer-links a {
-        padding: 0.9em;
-        font-size: small;
-        margin-bottom: 0;
-    }
-
-    .footer-filler {
-        grid-column: 1 / 3;
-        grid-row: 3;
-        height: 100%;
-        padding: 0;
-    }
-
-    .footer-single-cell {
-        grid-column: 3;
-        grid-row: 1 / 4;
-        align-self: stretch;
-        height: auto;
-        padding: 1.25em;
-        margin: 0;
-    }
-
-    .footer-container h2,
-    .footer-container p {
-        font-size: small;
-        line-height: 135%;
-    }
-
-    .contact-info {
-        font-size: smaller;
-    }
-
-    .footer-divider {
-        margin-top: 5rem;
-    }
-}
+/
