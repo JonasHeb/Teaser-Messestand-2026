@@ -6,8 +6,8 @@
 :root {
     /* Colors */
     --text: #fff;
-    --qnips-green: #01ff98;
-    --qnips-accent: #6cd999;
+    --qnips-green: #39f2ff;
+    --qnips-accent: #39f2ff9a;
     --dark-blue: #fff;
     --booth-blue: #84f0f7;
     --qnips-transparent: rgba(108, 217, 153, 0.25);
@@ -25,7 +25,8 @@
 h1 {
     color: var(--text) !important;
     font-weight: 600 !important;
-    font-size: 1.7rem !important; 
+    font-size: 1.7rem !important;
+    padding-bottom: 1rem;
 }
 
 p {
@@ -66,15 +67,19 @@ body {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+
+    
     
 }
 .lang-btn {
     all: unset;
-    background-color: #1c142d;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.1);
     border-right: 1px solid #6161a759;
     color: var(--text);
     padding: 0.4rem 1.2rem;
-    font-weight: 300;
+    border-radius: 0.2rem;
+    font-weight: 500;
     letter-spacing: 0.1em;
     transition: background 300ms ease, color 300ms ease, border-color 100ms ease;
     font-size: 0.8rem;
@@ -141,7 +146,7 @@ body {
     bottom: 0.75rem;
     right: 0.5em;
     font-size: 2.5rem;
-    color: rgb(89, 230, 240);
+    color: rgb(255, 255, 255);
     pointer-events: none;
     filter: blur(1px);
     opacity: 0.8;
@@ -243,10 +248,11 @@ model-viewer {
    ============================================ */
 .Hotspot {
     display: block;
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     border-radius: 100px;
-    border: 2px solid #ffffffa8;
+    border: 0.1rem solid #39f2ff;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
     background-color: transparent;
     box-sizing: border-box;
     pointer-events: auto;
@@ -280,16 +286,66 @@ model-viewer {
     position: absolute;
     z-index: 100;
     pointer-events: auto;
-    max-width: 10rem;
-    width: 9rem;
-    font-size: 0.75rem;
+    max-width: 15rem;
+    width: 15rem;
+    font-size: 1rem;
     text-align: left;
     line-height: 1.4;
 }
 
+
+.HotspotAnnotation.left {
+    align-items: flex-start;
+    transform: translate(calc(-15rem - 50px), -35px);
+}
+.HotspotAnnotation.right-top {
+    align-items: flex-start;
+    transform: translate(50px, -10rem);
+}
+
+@media (max-width: 768px) {
+    .HotspotAnnotation, .HotspotAnnotation.left, .HotspotAnnotation.right-top {
+        transform: translate(-7.5rem, -12rem);
+        font-size: 0.9rem;
+    }
+}
+
+.annotation-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+.annotation-close {
+    cursor: pointer;
+    background: #e0e0e0;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    transition: background 150ms ease, transform 150ms ease;
+    flex-shrink: 0;
+}
+
+.annotation-close:hover {
+    background: #d0d0d0;
+    transform: scale(1.1);
+}
+
+.annotation-close:active {
+    background: #b0b0b0;
+    transform: scale(0.95);
+}
+
 .annotation-title {
-    font-weight: 700;
-    font-size: 0.85rem;
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
 /* ============================================
@@ -346,6 +402,73 @@ model-viewer {
     max-width: 8.0em;
 }
 
+.social-icon-container a {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: auto;
+     height: auto;
+     color: var(--text);
+     background: none;
+     transition: color 0.2s, background 0.2s, transform 0.15s;
+     font-size: 5rem;
+     text-decoration: none;
+}
+
+.social-icon-container a:hover {
+     color: var(--qnips-green);
+     background: rgba(57, 242, 255, 0.08);
+     transform: scale(1.12);
+}
+
+.social-icon-container i {
+     font-size: 3rem;
+     pointer-events: none;
+}
+.social-icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-left{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: end;
+    gap: 2rem;
+}
+a {
+    color: var(--qnips-green);
+    text-decoration: none;
+}
+.copyright {
+    text-align: left;
+}
+
+.footer-right-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 1rem;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .footer-right-cell {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+h3 {
+    font-size: 1rem !important;
+    color: var(--text)!important;
+    font-weight: 400!important;
+    margin: 0 !important;
+}
 @keyframes loop {
     from {
         transform: translateX(0);
